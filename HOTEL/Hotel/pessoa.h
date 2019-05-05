@@ -22,18 +22,24 @@ public:
         this->age = age;
     }
 
+    Pessoa(int id){
+        this->id = id;
+    }
+
     void addRoom(Room room){
         this->room = room;
     }
 
     void removeRoom(){
         this->room.changeStatus();
-
-        this->room = NULL;
     }
 
     int getRoomNumber(){
         return this->room.getNumber();
+    }
+
+    int getId(){
+        return this->id;
     }
 
 };

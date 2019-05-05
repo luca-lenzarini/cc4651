@@ -25,17 +25,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        cadastrohospede.cpp \
         main.cpp \
-        mainwindow.cpp \
-        room.cpp
+        mainwindow.cpp
 
 HEADERS += \
+        avl.h \
+        cadastrarhospede.h \
+        cadastrohospede.h \
         lde.h \
         mainwindow.h \
         pessoa.h \
         room.h
 
 FORMS += \
+        cadastrohospede.ui \
         mainwindow.ui
 
 # Default rules for deployment.
