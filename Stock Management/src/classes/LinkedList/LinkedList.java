@@ -33,15 +33,28 @@ public class LinkedList<T extends Comparable<T>> implements Comparable<T>{
             lastNodeTemp = lastNode;
             lastNode = lastNode.getNext();
         }
-
+        listSize++;
         lastNodeTemp.setNext(newNode);
         return true;
+    }
+
+    public void printList(){
+        LinkedListNode<T> lastNode = this.firstNode;
+
+        while(lastNode != null){
+            System.out.println(lastNode.getValue());
+            lastNode = lastNode.getNext();
+        }
     }
 
     public T remove(Integer index){
         LinkedListNode<T> lastNode = this.firstNode;
         LinkedListNode<T> lastNodeTemp = null;
         Integer loops = 0;
+
+        if(loops > this.listSize){
+            return null;
+        }
 
         while(lastNode != null && !index.equals(loops)){
             lastNodeTemp = lastNode;
@@ -53,7 +66,12 @@ public class LinkedList<T extends Comparable<T>> implements Comparable<T>{
             return null;
         }
 
-        lastNodeTemp.setNext(lastNode.getNext());
+        if(lastNodeTemp == null){
+            this.firstNode = lastNode.getNext();
+        }else {
+            lastNodeTemp.setNext(lastNode.getNext());
+        }
+
         this.listSize--;
         return lastNode.getValue();
     }
