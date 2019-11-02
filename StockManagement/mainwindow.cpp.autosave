@@ -17,5 +17,5 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::on_addButton_clicked(){
-
+    QString nome = ui->nomeAddText
 }

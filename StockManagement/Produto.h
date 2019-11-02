@@ -1,8 +1,6 @@
 #ifndef PRODUTO_H
 #define PRODUTO_H
 
-#endif // PRODUTO_H
-
 #include <iostream>
 #include <stdio.h>
 
@@ -14,10 +12,27 @@ private:
     int quantidade;
     double tamanho;
     int prioridade;
+    int quantidadeMinima;
 
 public:
+    Produto(){
+        this->preco = 0;
+        this->quantidade = 0;
+        this->tamanho = 0;
+        this->prioridade = 0;
+        this->quantidadeMinima = 0;
+    }
+
+    Produto(double preco, int quantidade, double tamanho, int prioridade, int quantidadeMinima){
+        this->preco=preco;
+        this->quantidade=quantidade;
+        this->tamanho=tamanho;
+        this->prioridade=prioridade;
+        this->quantidadeMinima = quantidadeMinima;
+    }
+
     friend ostream& operator<<(ostream&os, const Produto& print){
-        os << print.preco << '/' << print.tamanho << '/' << print.prioridade;
+        os << print.prioridade;
         return os;
     }
 
@@ -43,13 +58,6 @@ public:
         return false;
     }
 
-    Produto(double preco, int quantidade, double tamanho, int prioridade){
-        this->preco=preco;
-        this->quantidade=quantidade;
-        this->tamanho=tamanho;
-        this->prioridade=prioridade;
-    }
-
     void setPreco(double newPreco){
         this->preco = newPreco;
     }
@@ -64,6 +72,14 @@ public:
 
     int getQuantidade(){
         return this->quantidade;
+    }
+
+    void setQuantidadeMinima(int quantidadeMinima){
+        this->quantidadeMinima = quantidadeMinima;
+    }
+
+    int getQuantidadeMinima(){
+        return this->quantidadeMinima;
     }
 
     void setTamanho(double tamanho){
@@ -82,3 +98,5 @@ public:
         return this->prioridade;
     }
 };
+
+#endif // PRODUTO_H

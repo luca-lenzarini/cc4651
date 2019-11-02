@@ -1,11 +1,9 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#endif // LINKEDLIST_H
-
-
 #include <cstdlib>
 #include <iostream>
+#include "Produto.h"
 
 using namespace std;
 
@@ -87,4 +85,16 @@ public:
 
     return true;
   }
+
+  void print(){
+      Node<T> *atual = primeiro;
+
+      while(atual != nullptr){
+          cout<<atual->valor;
+          atual = atual->next;
+      }
+  }
 };
+
+
+#endif // LINKEDLIST_H
