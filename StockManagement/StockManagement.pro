@@ -20,6 +20,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    Fde.h \
     LinkedList.h \
     Produto.h \
     mainwindow.h

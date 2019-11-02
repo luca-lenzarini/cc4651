@@ -26,4 +26,6 @@ int main(int argc, char *argv[])
     lista.insere(*produto1);
     lista.insere(*produto2);
     lista.insere(*produto3);
+    
+    
 }
