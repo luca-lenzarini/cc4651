@@ -19,13 +19,10 @@ public:
     LinkedList<Produto> produtosLista;
 
 private slots:
-    void on_listaProdutosButton_clicked();
-
     void on_addButton_clicked();
+    void on_nomeAddText_editingFinished();
 
-    void on_nomeAddText_objectNameChanged(const QString &objectName);
-
-    void on_nomeAddText_textEdited(const QString &arg1);
+    void on_searchButton_clicked();
 
 private:
     Ui::MainWindow *ui;

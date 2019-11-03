@@ -30,7 +30,7 @@ public:
   }
 
 
-  bool insere(T valor) {
+  bool add(T valor) {
     Node<T> *atual = primeiro;
     Node<T> *anterior = nullptr;
 
@@ -50,19 +50,23 @@ public:
       primeiro = newNode;
 
     newNode->next = atual;
+    this->total++;
     return true;
   }
 
-  Node<T> *busca(T valor) {
+  bool busca(T valor, T* retorno) {
     Node<T> *atual = primeiro;
     while (atual && atual->valor < valor) {
-      atual = atual->next;
+        atual = atual->next;
     }
 
-    if (atual && atual->valor == valor)
-      return atual;
-    else
-      return nullptr;
+    if (atual && atual->valor == valor){
+        retorno = &atual->valor;
+        return true;
+    }
+    retorno = nullptr;
+    return false;
+
   }
 
   bool remove(T valor) {
@@ -83,6 +87,7 @@ public:
 
     delete atual;
 
+    this->total--;
     return true;
   }
 
@@ -93,6 +98,10 @@ public:
           cout<<atual->valor;
           atual = atual->next;
       }
+  }
+
+  int size(){
+      return this->total;
   }
 };
 

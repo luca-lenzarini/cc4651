@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <string>
 
 using namespace std;
 
 class Produto{
 private:
+    string nome;
     double preco;
     int quantidade;
     double tamanho;
@@ -15,6 +17,10 @@ private:
     int quantidadeMinima;
 
 public:
+    Produto(string nome){
+        this->nome = nome;
+    }
+
     Produto(){
         this->preco = 0;
         this->quantidade = 0;
@@ -23,21 +29,22 @@ public:
         this->quantidadeMinima = 0;
     }
 
-    Produto(double preco, int quantidade, double tamanho, int prioridade, int quantidadeMinima){
+    Produto(double preco, int quantidade, double tamanho, int prioridade, int quantidadeMinima, string nome){
         this->preco=preco;
         this->quantidade=quantidade;
         this->tamanho=tamanho;
         this->prioridade=prioridade;
         this->quantidadeMinima = quantidadeMinima;
+        this->nome = nome;
     }
 
     friend ostream& operator<<(ostream&os, const Produto& print){
-        os << print.prioridade;
+        os << print.prioridade << " " << print.nome << " " << print.preco << " " << print.tamanho << " " << print.quantidade << " " << print.quantidadeMinima;
         return os;
     }
 
     bool operator==(const Produto& comparison){
-        if(this->prioridade == comparison.prioridade){
+        if(this->nome.compare(comparison.nome) == 0){
             return true;
         }
         return false;
@@ -45,7 +52,6 @@ public:
 
     bool operator>(const Produto& comparison){
         if(this->prioridade > comparison.prioridade){
-            cout<<"é true"<<endl;
             return true;
         }
         return false;
