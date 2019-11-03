@@ -21,7 +21,9 @@ SOURCES += \
 
 HEADERS += \
     Fde.h \
+    Fila.h \
     LinkedList.h \
+    ListaDeCompras.h \
     Produto.h \
     mainwindow.h
 

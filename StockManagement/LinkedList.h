@@ -54,19 +54,35 @@ public:
     return true;
   }
 
-  bool busca(T valor, T* retorno) {
+  Node<T> *get(T valor) {
     Node<T> *atual = primeiro;
     while (atual && atual->valor < valor) {
         atual = atual->next;
     }
 
     if (atual && atual->valor == valor){
-        retorno = &atual->valor;
-        return true;
+        return atual;
+    }else{
+        return NULL;
     }
-    retorno = nullptr;
-    return false;
 
+  }
+
+  Node<T>* get(int index){
+      Node<T> *atual = primeiro;
+
+      int i = 0;
+
+      while (atual && i < index) {
+          atual = atual->next;
+          i++;
+      }
+
+      if (atual){
+          return atual;
+      }else{
+          return NULL;
+      }
   }
 
   bool remove(T valor) {

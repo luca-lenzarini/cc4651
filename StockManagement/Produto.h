@@ -10,13 +10,14 @@ using namespace std;
 class Produto{
 private:
     string nome;
-    double preco;
-    int quantidade;
+
     double tamanho;
     int prioridade;
     int quantidadeMinima;
 
 public:
+    double preco;
+    int quantidade;
     Produto(string nome){
         this->nome = nome;
     }
@@ -50,15 +51,22 @@ public:
         return false;
     }
 
+    bool operator!=(const Produto& comparison){
+        if(this->nome.compare(comparison.nome) != 0){
+            return true;
+        }
+        return false;
+    }
+
     bool operator>(const Produto& comparison){
-        if(this->prioridade > comparison.prioridade){
+        if(this->nome.compare(comparison.nome) > 0){
             return true;
         }
         return false;
     }
 
     bool operator<(const Produto& comparison){
-        if(this->prioridade < comparison.prioridade){
+        if(this->nome.compare(comparison.nome) < 0){
             return true;
         }
         return false;
@@ -102,6 +110,14 @@ public:
 
     int getPrioridade(){
         return this->prioridade;
+    }
+
+    void setNome(string nome){
+        this->nome = nome;
+    }
+
+    string getNome(){
+        return this->nome;
     }
 };
 
