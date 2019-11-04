@@ -119,6 +119,11 @@ public:
   int size(){
       return this->total;
   }
+
+  void clear(){
+      primeiro = 0;
+      total = 0;
+  }
 };
 
 

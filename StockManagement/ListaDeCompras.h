@@ -1,6 +1,8 @@
 #ifndef LISTADECOMPRAS_H
 #define LISTADECOMPRAS_H
 
+
+//Lista de compras é uma LES
 #include <algorithm>
 #include <cstdlib>
 #include <exception>
@@ -9,7 +11,7 @@
 #include <Produto.h>
 #include "Fde.h"
 
-#define MAX 10
+#define MAX 50
 using namespace std;
 
 class ListaDeCompra {
@@ -92,6 +94,10 @@ public:
 
   FDE<Produto> getFila(){
       return this->filaDeCompras;
+  }
+
+  void clear(){
+
   }
 };
 

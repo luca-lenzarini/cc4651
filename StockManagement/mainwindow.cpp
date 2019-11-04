@@ -82,7 +82,7 @@ void MainWindow::on_addButton_clicked(){
             errors += "-O campo Prioridade deve estar entre 0 e 10";
     }
     if(errors.isEmpty()){
-        if(produtosLista.add(*novoProduto)){            
+        if(produtosLista.add(*novoProduto)){
 
 
             if(novoProduto->getQuantidade() < novoProduto->getQuantidadeMinima()){
@@ -93,12 +93,15 @@ void MainWindow::on_addButton_clicked(){
 
                 FDE<Produto> fdeCompras = listaDeCompra.getFila();
 
-                ui->filaDeCompas->setRowCount(10);
+                ui->filaDeCompas->setRowCount(fdeCompras.size());
 
-                for(int i = 0; i < fdeCompras.size(); i++){
-                    ui->filaDeCompas->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(fdeCompras.get(i)->valor.getNome())));
-                    ui->filaDeCompas->setItem(i, 1, new QTableWidgetItem(QString::number(fdeCompras.get(i)->valor.getQuantidade())));
-                    ui->filaDeCompas->setItem(i, 2, new QTableWidgetItem(QString::number(fdeCompras.get(i)->valor.getPrioridade())));
+                int index = 0;
+
+                for(int i = fdeCompras.size() - 1; i >= 0; i--){
+                    ui->filaDeCompas->setItem(index, 0, new QTableWidgetItem(QString::fromStdString(fdeCompras.get(i)->valor.getNome())));
+                    ui->filaDeCompas->setItem(index, 1, new QTableWidgetItem(QString::number(fdeCompras.get(i)->valor.getQuantidade())));
+                    ui->filaDeCompas->setItem(index, 2, new QTableWidgetItem(QString::number(fdeCompras.get(i)->valor.getQuantidadeMinima())));
+                    index++;
                 }
             }
 
