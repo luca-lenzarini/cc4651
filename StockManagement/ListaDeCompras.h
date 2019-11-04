@@ -95,6 +95,10 @@ public:
   FDE<Produto> getFila(){
       return this->filaDeCompras;
   }
+
+  void clear(){
+
+  }
 };
 
 
